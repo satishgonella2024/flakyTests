@@ -3,15 +3,17 @@
   "version": "1.0.0",
   "description": "Demo project to showcase TeamCity's intelligent flaky test detection vs Jenkins",
   "scripts": {
-    "test": "jest --forceExit",
+    "test": "jest --runInBand --reporters=default --reporters=jest-teamcity --forceExit",
     "test:ci": "jest --ci --coverage --forceExit",
-    "test:junit": "jest --ci --reporters=default --reporters=jest-junit --forceExit"
+    "test:junit": "jest --ci --reporters=default --reporters=jest-junit --forceExit",
+    "test:teamcity": "jest --runInBand --reporters=default --reporters=jest-teamcity --forceExit"
   },
   "devDependencies": {
-    "jest": "^29.5.0",
-    "jest-junit": "^16.0.0",
+    "@types/jest": "^29.5.0",
     "axios": "^1.4.0",
-    "@types/jest": "^29.5.0"
+    "jest": "^29.7.0",
+    "jest-junit": "^16.0.0",
+    "jest-teamcity": "^1.12.0"
   },
   "jest": {
     "testEnvironment": "node",
