@@ -1,0 +1,36 @@
+{
+  "name": "flaky-test-demo",
+  "version": "1.0.0",
+  "description": "Demo project to showcase TeamCity's intelligent flaky test detection vs Jenkins",
+  "scripts": {
+    "test": "jest --forceExit",
+    "test:ci": "jest --ci --coverage --forceExit",
+    "test:junit": "jest --ci --reporters=default --reporters=jest-junit --forceExit"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0",
+    "jest-junit": "^16.0.0",
+    "axios": "^1.4.0",
+    "@types/jest": "^29.5.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coverageDirectory": "coverage",
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ],
+    "testMatch": [
+      "**/tests/**/*.test.js"
+    ],
+    "testTimeout": 10000
+  },
+  "jest-junit": {
+    "outputDirectory": "./test-results",
+    "outputName": "junit.xml",
+    "uniqueOutputName": "false",
+    "classNameTemplate": "{classname}",
+    "titleTemplate": "{title}",
+    "ancestorSeparator": " › ",
+    "usePathForSuiteName": "true"
+  }
+}
